@@ -1,7 +1,6 @@
-resource "aws_vpc" "this" {
-  cidr_block = var.vpc_cidr
-
-  tags = {
-    Name = var.name
-  }
+module "network_vpc" {
+  source      = "../../modules/network/vpc"
+  vpc_cidr    = "10.0.0.0/16"
+  name        = "dev-vpc"
+  environment = "dev"
 }
