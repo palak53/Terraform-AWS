@@ -19,3 +19,12 @@ module "network_igw" {
   public_subnet_ids = module.network_subnet.public_subnet_ids
   environment       = "dev"
 }
+
+
+module "network_natgw" {
+  source              = "../../modules/network/natgw"
+  vpc_id              = module.network_vpc.vpc_id
+  public_subnet_id    = module.network_subnet.public_subnet_ids[0]
+  private_subnet_ids  = module.network_subnet.private_subnet_ids
+  environment         = "dev"
+}
