@@ -28,3 +28,11 @@ module "network_natgw" {
   private_subnet_ids  = module.network_subnet.private_subnet_ids
   environment         = "dev"
 }
+
+module "compute_ec2" {
+  source        = "../../modules/compute/ec2"
+  ami_id        = "ami-111111111111" 
+  instance_type = "t2.micro"
+  subnet_id     = module.network_subnet.public_subnet_ids[0]
+  environment   = "dev"
+}
