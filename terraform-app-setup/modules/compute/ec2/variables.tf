@@ -13,6 +13,11 @@ variable "subnet_id" {
   description = "Public subnet where EC2 will be launched"
 }
 
+variable "sg_id" {
+  type        = string
+  description = "Security Group ID to attach"
+}
+
 variable "environment" {
   type        = string
   description = "Environment name"
