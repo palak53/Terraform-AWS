@@ -7,3 +7,8 @@ variable "name" {
   type        = string
   description = "Name tag for the VPC"
 }
+
+variable "environment" {
+  type        = string
+  description = "Environment tag (e.g. dev, staging, prod)"
+}
