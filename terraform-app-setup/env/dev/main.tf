@@ -12,3 +12,10 @@ module "network_subnet" {
   private_subnet_cidrs = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
   environment          = "dev"
 }
+
+module "network_igw" {
+  source            = "../../modules/network/igw"
+  vpc_id            = module.network_vpc.vpc_id
+  public_subnet_ids = module.network_subnet.public_subnet_ids
+  environment       = "dev"
+}
