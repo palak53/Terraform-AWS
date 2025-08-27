@@ -29,10 +29,17 @@ module "network_natgw" {
   environment         = "dev"
 }
 
+module "compute_sg" {
+  source      = "../../modules/compute/security-group"
+  vpc_id      = module.network_vpc.vpc_id
+  environment = "dev"
+}
+
 module "compute_ec2" {
   source        = "../../modules/compute/ec2"
-  ami_id        = "ami-111111111111" 
+  ami_id        = "ami-1111111111abc" 
   instance_type = "t2.micro"
   subnet_id     = module.network_subnet.public_subnet_ids[0]
+  sg_id         = module.compute_sg.sg_id
   environment   = "dev"
 }
