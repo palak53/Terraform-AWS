@@ -5,7 +5,7 @@ module "network_vpc" {
 }
 
 module "network_subnet" {
-  source               = "../../modules/network/subnet"
+  source               = "../../modules/network/subnet" 
   vpc_id               = module.network_vpc.vpc_id
   azs                  = ["us-east-1a", "us-east-1b", "us-east-1c"]
   public_subnet_cidrs = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
